@@ -4,7 +4,6 @@ import path from 'path'
 import 'dotenv/config'
 import route from './Router/Route.js';
 const port = 5050;
-const api_url = 'https://biblebytopic.com/api/getrandompopularverse-kjv'
 
 const server = express()
 const __dirname = path.resolve()

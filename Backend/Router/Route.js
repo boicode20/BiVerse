@@ -1,6 +1,7 @@
 import express from 'express'
 const route = express.Router()
 
+const api_url = 'https://biblebytopic.com/api/getrandompopularverse-kjv'
 
 route.get('/bible',async(req,res)=>{
     try{
