@@ -17,6 +17,7 @@ const BiVerseMain = () => {
             setShow(false)
 
             const data = await Api.get('/bible')
+            console.log(data)
             setBible(data.data.data.text)
             setLoading(false)
         }catch(err){
