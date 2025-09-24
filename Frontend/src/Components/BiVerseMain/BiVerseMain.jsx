@@ -2,8 +2,8 @@ import React, { useState,useRef } from 'react'
 import axios from 'axios'
 import Loading from '../../Loading/Loading'
 import { BiSolidBible } from "react-icons/bi";
+import { Api } from '../../Api/Api.js';
 
-const backend_api = 'http://localhost:5050/bible'
 
 const BiVerseMain = () => {
     const [bible,setBible] =useState(null)
@@ -16,7 +16,7 @@ const BiVerseMain = () => {
         try{
             setShow(false)
 
-            const data = await axios.get(backend_api)
+            const data = await Api.get('/bible')
             setBible(data.data.data.text)
             setLoading(false)
         }catch(err){

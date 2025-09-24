@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import path from 'path'
 import 'dotenv/config'
+import route from './Router/Route.js';
 const port = 5050;
 const api_url = 'https://biblebytopic.com/api/getrandompopularverse-kjv'
 
@@ -26,18 +27,7 @@ server.listen(port,()=>{
 })
 
 
-server.get('/bible',async(req,res)=>{
-    try{
-        const data = await fetch(api_url)
-        const response = await data.json()
-        if(!response) return res.status(401).json({error:true,message:"Unauthorize user"})
-        
-        return res.status(200).json({error:false,message:"Success",data:response})
-    }catch(err){
-        console.error(err)
-        return res.status(400).json(err)
-    }
-})
+
 
 if(process.env.NODE_ENV ==="production"){
     server.use(express.static(path.join(__dirname,"../frontend/dist")))
@@ -46,3 +36,5 @@ if(process.env.NODE_ENV ==="production"){
 })
 
 }
+
+server.use('/api',route)
