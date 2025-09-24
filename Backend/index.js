@@ -1,16 +1,15 @@
 import express from 'express'
 import cors from 'cors'
 import path from 'path'
-
+import 'dotenv/config'
 const port = 5050;
 const api_url = 'https://biblebytopic.com/api/getrandompopularverse-kjv'
 
 const server = express()
 const __dirname = path.resolve()
 
-const dev = 'development'
 
-if(dev !== "production"){
+if(process.env.NODE_ENV !== "production"){
   
     server.use(cors(
         {
@@ -40,7 +39,7 @@ server.get('/bible',async(req,res)=>{
     }
 })
 
-if(dev==="production"){
+if(process.env.NODE_ENV ==="production"){
     server.use(express.static(path.join(__dirname,"../frontend/dist")))
     server.get("/*splat",(req,res)=>{
     res.sendFile(path.join(__dirname,"../frontend","dist","index.html"))
