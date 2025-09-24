@@ -16,15 +16,10 @@ if(process.env.NODE_ENV !== "production"){
             origin:'http://localhost:5173'
         }
     ))
+} else {
+  server.use(cors({ origin: 'https://random-bible-verse-6tid.onrender.com' }))
 }
-if(process.env.NODE_ENV === "production"){
-  
-    server.use(cors(
-        {
-            origin:'https://random-bible-verse-6tid.onrender.com'
-        }
-    ))
-}
+
 
 
 server.use(express.json())
@@ -34,7 +29,7 @@ server.listen(port,()=>{
     console.log(`SERVER IS RUNNING ON PORT: ${port}`)
 })
 
-
+server.use('/api',route)
 
 
 if(process.env.NODE_ENV ==="production"){
@@ -45,4 +40,3 @@ if(process.env.NODE_ENV ==="production"){
 
 }
 
-server.use('/api',route)
