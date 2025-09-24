@@ -17,6 +17,15 @@ if(process.env.NODE_ENV !== "production"){
         }
     ))
 }
+if(process.env.NODE_ENV === "production"){
+  
+    server.use(cors(
+        {
+            origin:'https://random-bible-verse-6tid.onrender.com'
+        }
+    ))
+}
+
 
 server.use(express.json())
 
