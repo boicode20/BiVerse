@@ -42,7 +42,8 @@ const BiVerseMain = () => {
                 backgroundColor: null,
                 scale: 2,
                 useCORS: true,
-                allowTaint: false
+                allowTaint: false,
+                padding:'20px'
             });
 
             verseRef.current.style.cssText = originalStyle;
@@ -70,10 +71,10 @@ const BiVerseMain = () => {
                 
                 {bible && bible.map((b, i) => {
                     return (
-                        <div key={b.book_id} className="relative">
+                        <div key={b.book_id} className="relative px-4 md:px-0 w-full h-auto flex flex-col justify-center items-center">
                             <div 
                                 ref={verseRef}
-                                className='bible-verse sm:w-[80%] w-[95%] md:w-[400px] h-auto shadow-[var(--bible-light)] dark:shadow-[var(--bible-dark)] p-6 rounded-[10px] flex flex-col gap-2 bg-white dark:bg-[#232323]'
+                                className='bible-verse sm:w-[80%] w-[95%] md:w-[400px] h-auto shadow-[var(--bible-light)] dark:shadow-[var(--bible-dark)] px-6 pt-2 pb-8 rounded-[10px] flex flex-col gap-2 bg-white dark:bg-[#232323]'
                                 
                             >
                                 
