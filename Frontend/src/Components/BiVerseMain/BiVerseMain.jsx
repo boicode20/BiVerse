@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react'
-import axios from 'axios'
 import html2canvas from 'html2canvas'
 import Loading from '../../Loading/Loading'
 import { BiSolidBible, BiCamera } from "react-icons/bi";
@@ -27,7 +26,6 @@ const BiVerseMain = () => {
         if (!verseRef.current) return;
 
         try {
-            // Temporary disable any transforms that might affect border-radius
             const originalStyle = verseRef.current.style.cssText;
           
 
@@ -39,7 +37,6 @@ const BiVerseMain = () => {
             // verseRef.current.style.margin = '0';
             // verseRef.current.style.transform = 'none';
 
-        // Add a small delay to ensure styles are applied
         await new Promise(resolve => setTimeout(resolve, 50));
             const canvas = await html2canvas(verseRef.current, {
                 backgroundColor: null,
@@ -48,7 +45,6 @@ const BiVerseMain = () => {
                 allowTaint: false
             });
 
-            // Restore original styles
             verseRef.current.style.cssText = originalStyle;
 
             const image = canvas.toDataURL('image/png');
@@ -84,7 +80,7 @@ const BiVerseMain = () => {
                                 <div className="w-full h-auto flex justify-center items-center font-bold  ">
                                   <div className="bible-header flex items-center p-3">
                                 <div className="w-10 h-10 flex items-center justify-center">
-                                <BiSolidBible className="text-4xl text-[#4e4e4e] dark:text-[#ff6d38] relative top-[3px]" />
+                                <BiSolidBible className="text-4xl text-[#4e4e4e] dark:text-[#ffffff] relative top-[3px]" />
                                 </div>
                                 <h1 className="text-[1.9rem] md:text-[1.6rem] text-[#ff6d38] leading-none">
                                     <span className="text-[#4e4e4e] dark:text-[#ffffff]">Bible</span>Verse
