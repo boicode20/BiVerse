@@ -1,8 +1,8 @@
 :root{
   /* Light */
-  --nav-light: #ffffff;
+  --nav-light: #f7f7f7;
   --nav-h1-light: #242424;
-  --main-light: #ffffff;
+  --main-light: #e2e2e2;
   --footer-light: #ffffff;
   --btn-light: #ffffff;
   --bible-light: 0 0 20px #dadada;
@@ -45,3 +45,10 @@
   animation: l3 1s infinite linear;
 }
 @keyframes l3 {to{transform: rotate(1turn)}}
+
+
+.bible-header h1, 
+.bible-header svg {
+  line-height: 1 !important;
+  vertical-align: middle !important;
+}
